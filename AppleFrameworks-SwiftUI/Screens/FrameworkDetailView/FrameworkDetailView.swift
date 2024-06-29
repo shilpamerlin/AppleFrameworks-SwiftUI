@@ -10,14 +10,12 @@ import SwiftUI
 struct FrameworkDetailView: View {
     
     var framework: Framework
-    @Binding var isShowingDetailView: Bool // Binding makes this isShowingDetailView equal to what ever it is in parent view(FrameworkGridView) ie, $viewModel.isShowingDetailView
+   // @Binding var isShowingDetailView: Bool // Binding makes this isShowingDetailView equal to what ever it is in parent view(FrameworkGridView) ie, $viewModel.isShowingDetailView
     // @Binding lets us declare that one value actually comes from elsewhere, and should be shared in both places
     @State private var isShowingSafariView = false
     
     var body: some View {
         VStack() {
-            DismissButton(isShowingDetailView: $isShowingDetailView)
-            Spacer() // create space at top
             
             FrameworkTitleView(framework: framework)
             
@@ -41,5 +39,5 @@ struct FrameworkDetailView: View {
 }
 
 #Preview {
-    FrameworkDetailView(framework: MockData.sampleFramework, isShowingDetailView: .constant(false))
+    FrameworkDetailView(framework: MockData.sampleFramework)
 }
